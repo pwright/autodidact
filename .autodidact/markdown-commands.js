@@ -1,3 +1,4 @@
+// converts single line markdown code examples to didact links
 
 const replace = require('replace-in-file');
 
