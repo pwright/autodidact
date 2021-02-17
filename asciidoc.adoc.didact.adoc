@@ -8,16 +8,16 @@ This code helps create didact tutorials from existing files.
 
 To see this in action, consider this README file, to convert it to didact:
 
-+++<pre>$ <a href=didact://?commandId=vscode.didact.sendNamedTerminalAString&text=bash$$npm%20i style="text-decoration:none">npm i</a></pre>+++
++++<pre>$ <a href=didact://?commandId=vscode.didact.sendNamedTerminalAString&text=$$npm%20i style="text-decoration:none">npm i</a></pre>+++
 
 That installs the required dependencies, now you can install autodidact as a global command:
 
-+++<pre>$ <a href=didact://?commandId=vscode.didact.sendNamedTerminalAString&text=bash$$npm%20i%20-g%20. style="text-decoration:none">npm i -g .</a></pre>+++
++++<pre>$ <a href=didact://?commandId=vscode.didact.sendNamedTerminalAString&text=$$npm%20i%20-g%20. style="text-decoration:none">npm i -g .</a></pre>+++
 
 
 To convert the README.md file:
 
-+++<pre>$ <a href=didact://?commandId=vscode.didact.sendNamedTerminalAString&text=bash$$autodidact%20asciidoc.adoc style="text-decoration:none">autodidact asciidoc.adoc</a></pre>+++
++++<pre>$ <a href=didact://?commandId=vscode.didact.sendNamedTerminalAString&text=$$autodidact%20asciidoc.adoc style="text-decoration:none">autodidact asciidoc.adoc</a></pre>+++
 
 ## What's in scope
 

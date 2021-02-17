@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 var matchExt = require("match-extension");
+var autosubs = require('./substitutions');
 const exec = require("child_process").execSync;
 
 const argv = require("yargs").command(
@@ -16,18 +17,17 @@ const argv = require("yargs").command(
       console.log(greeting);
    
       exec(`cp ${sourcefile} ${sourcefile}.didact.md`, {});
-      exec(`node ./markdown-commands.js ${sourcefile}.didact.md`, {});
-      exec(`node ./markdown-comments.js ${sourcefile}.didact.md`, {});
-
+      autosubs.mdCommands(`${sourcefile}.didact.md`);
+      autosubs.mdComments(`${sourcefile}.didact.md`);
 
     } else if (matchExt(/\.adoc/, `${sourcefile}`)) {
       const greeting = `Converting AsciiDoc ${sourcefile}!`;
       console.log(greeting);
 
       exec(`cp ${sourcefile} ${sourcefile}.didact.adoc`, {});
-      exec(`node ./asciidoc-commands.js ${sourcefile}.didact.adoc`, {});
-      exec(`node ./asciidoc-comments.js ${sourcefile}.didact.adoc`, {});
-      exec(`node ./asciidoc-command-output.js ${sourcefile}.didact.adoc`, {});
+      autosubs.adocCommands(`${sourcefile}.didact.adoc`);
+      autosubs.adocComments(`${sourcefile}.didact.adoc`);
+      autosubs.adocCommandWithOutput(`${sourcefile}.didact.adoc`);
 
     } else {
       const greeting = `Cannot convert ${sourcefile}!`;
