@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "private": "^0.1.8",
-    "replace-in-file": "^6.1.0"
-  }
-}

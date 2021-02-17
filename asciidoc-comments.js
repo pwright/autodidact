@@ -4,7 +4,7 @@
 const replace = require('replace-in-file');
 
 // get file to process
-var file = process.argv[2] + '.didact.md';
+var file = process.argv[2];
 console.log('processing: ' + file);
 
 
@@ -12,7 +12,7 @@ console.log('processing: ' + file);
 const options = {
   files: file,
   //  comment-start link comment-end
-  from: /\<\!--- (.*) ---\>/g,
+  from: /\/\/ (.*) didactlink/g,
   to: (...args) => {
     console.log('commented link: ' + args[1]);
     var commentedLink = args[1];

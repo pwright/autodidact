@@ -1,0 +1,21 @@
+{
+  "name": "autodidact",
+  "version": "0.0.1",
+  "description": "converts .md and /adoc to .didact.md and .didact.adoc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "pwright",
+  "license": "MIT",
+  "bin": {
+    "autodidact": "./index.js"
+  },
+  "dependencies": {
+    "match-extension": "^0.2.1",
+    "private": "^0.1.8",
+    "replace-in-file": "^6.1.0",
+    "yargs": "^16.2.0"
+  }
+}

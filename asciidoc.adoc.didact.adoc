@@ -1,0 +1,43 @@
+# Autodidact
+
+Automate the creation of vscode didact tutorials.
+
+This code helps create didact tutorials from existing files.
+
+## Example
+
+To see this in action, consider this README file, to convert it to didact:
+
++++<pre>$ <a href=didact://?commandId=vscode.didact.sendNamedTerminalAString&text=bash$$npm%20i style="text-decoration:none">npm i</a></pre>+++
+
+That installs the required dependencies, now you can install autodidact as a global command:
+
++++<pre>$ <a href=didact://?commandId=vscode.didact.sendNamedTerminalAString&text=bash$$npm%20i%20-g%20. style="text-decoration:none">npm i -g .</a></pre>+++
+
+
+To convert the README.md file:
+
++++<pre>$ <a href=didact://?commandId=vscode.didact.sendNamedTerminalAString&text=bash$$autodidact%20asciidoc.adoc style="text-decoration:none">autodidact asciidoc.adoc</a></pre>+++
+
+## What's in scope
+
+Single line commands and links in comments are converted using the following format:
+
+:comment: //
+[subs="+attributes"]
+----
+{comment} <didact link> didactlink
+----
+
+link:didact://?commandId=workbench.action.showCommands[Click here to command pallette]
+
+A tutorial might consist of a number of commands, eg:
+
++++<pre>$ <a href=didact://?commandId=vscode.didact.sendNamedTerminalAString&text=$$date style="text-decoration:none">date</a></pre>+++
+
+Typical output:
+----
+Wed 17 Feb 13:30:31 GMT 2021
+----
+
+The command output should appear as a separate entity.

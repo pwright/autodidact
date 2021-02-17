@@ -3,20 +3,20 @@
 const replace = require('replace-in-file');
 
 // get file to process
-var file = process.argv[2] + '.didact.md';
+var file = process.argv[2];
 console.log('processing: ' + file);
 
 
 //set up the substitution
 const options = {
   files: file,
-  //  codefence meta nl prompt space command nl codefence
-  from: /```(.*)\n\$ (.*)\n```/g,
+  //  codefence nl prompt space command nl
+  from: /----\n\$ (.*)\n/g,
   to: (...args) => {
-    console.log('command: ' + args[2]);
-    var meta = args[1] || 'bash';
-    var command = args[2];
-    var link = '<pre>$ <a href=didact://?commandId=vscode.didact.sendNamedTerminalAString&text=' + meta + '$$' + encodeURIComponent(command) + '>' + command + '</a></pre>';
+    console.log('command: ' + args[1]);
+    
+    var command = args[1];
+    var link = '+++<pre>$ <a href=didact://?commandId=vscode.didact.sendNamedTerminalAString&text=$$' + encodeURIComponent(command) + ' style="text-decoration:none">' + command + '</a></pre>+++\n\nTypical output:\n----\n';
     return link;
   }
   ,
