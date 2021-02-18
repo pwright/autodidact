@@ -1,63 +1,58 @@
-# Autodidact
+[#autodidact]
+= Autodidact
+:source-filename: /home/paulwright/repos/autodidact/README.md
 
-Automate the creation of [VS Code Didact](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-didact) tutorials.
+Automate the creation of https://marketplace.visualstudio.com/items?itemName=redhat.vscode-didact[VS Code Didact] tutorials.
 
 This code helps create didact tutorials from existing files.
 
 To install autodidact:
 
-```
-$ npm i -g autodidact
-```
+ $ npm i -g autodidact
 
 To use autodidact, run it against either a Markdown or AsciiDoc file.
 
-## What it does to Markdown files
+[#what-it-does-to-markdown-files]
+== What it does to Markdown files
 
 If you have a command written with a codefence and using the `$` prompt, it is converted to a didact link.
 
 If you create didact links, you can hide them in comments, eg
 
-`<!--- [Click here to show command pallette](didact://?commandId=workbench.action.showCommands) --->`
+`+<!--- [Click here to show command pallette](didact://?commandId=workbench.action.showCommands) --->+`
 
-## Example
+[#example]
+== Example
 
 To see this in action, consider this README file, to convert it to didact:
 
-```
-$ npm i 
-```
+ $ npm i
 
 That installs the required dependencies, now you can install autodidact as a global command:
 
-```
-$ npm i -g .
-```
-
+ $ npm i -g .
 
 To convert the README.md file:
 
-```
-$ autodidact README.md
-```
+ $ autodidact README.md
 
-## What's in scope
+[#whats-in-scope]
+== What's in scope
 
 Single line commands and links in comments are converted.
 
-<!--- [Click here to show command pallette](didact://?commandId=workbench.action.showCommands) --->
+// - [Click here to show command pallette](didact://?commandId=workbench.action.showCommands) -
 
 A tutorial might consist of a number of commands, eg:
 
-```
-$ ls -al
-```
+ $ ls -al
 
 Sometimes, you might want to format the commands as per https://docs.github.com/en/free-pro-team@latest/github/writing-on-github/creating-and-highlighting-code-blocks
 
-```bash
+[source,bash]
+----
 $ ls -al
-```
+----
 
 The script assumes:
 

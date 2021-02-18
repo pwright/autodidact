@@ -1,14 +1,28 @@
 # Autodidact
 
-Automate the creation of vscode didact tutorials.
+Automate the creation of [VS Code Didact](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-didact) tutorials.
 
 This code helps create didact tutorials from existing files.
+
+To install autodidact:
+
+<pre>$ <a href=didact://?commandId=vscode.didact.sendNamedTerminalAString&text=bash$$npm%20i%20-g%20autodidact>npm i -g autodidact</a></pre>
+
+To use autodidact, run it against either a Markdown or AsciiDoc file.
+
+## What it does to Markdown files
+
+If you have a command written with a codefence and using the `$` prompt, it is converted to a didact link.
+
+If you create didact links, you can hide them in comments, eg
+
+`[Click here to show command pallette](didact://?commandId=workbench.action.showCommands)`
 
 ## Example
 
 To see this in action, consider this README file, to convert it to didact:
 
-<pre>$ <a href=didact://?commandId=vscode.didact.sendNamedTerminalAString&text=bash$$npm%20i>npm i</a></pre>
+<pre>$ <a href=didact://?commandId=vscode.didact.sendNamedTerminalAString&text=bash$$npm%20i%20>npm i </a></pre>
 
 That installs the required dependencies, now you can install autodidact as a global command:
 

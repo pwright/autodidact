@@ -180,3 +180,42 @@ exports.adocCommandWithOutput = function (file) {
   // return
   return Date();
 };
+
+// converts code examples and directs them to specified named terminal 
+exports.adocCommandtoTerminalName = function (file) {
+  const replace = require("replace-in-file");
+
+  // get file to process
+  console.log("processing: " + file);
+
+  //set up the substitution
+  const options = {
+    files: file,
+    //  codespec nl codefence nl prompt space command nl codefence
+    from: /\[.*term=(.*)\]\n----\n\$ (.*)\n----/g,
+    to: (...args) => {
+      console.log("command for "+ args[1] +": " + args[2]);
+      var termname = args[1];
+      var command = args[2];
+      var link =
+        "+++<pre>$ <a href=didact://?commandId=vscode.didact.sendNamedTerminalAString&text=" + termname +"$$" +
+        encodeURIComponent(command) +
+        ' style="text-decoration:none">' +
+        command +
+        "</a></pre>+++\n";
+      return link;
+    },
+  };
+
+  //perform the substitution
+
+  try {
+    const results = replace.sync(options);
+    console.log("Replacement results:", results);
+  } catch (error) {
+    console.error("Error occurred:", error);
+  }
+
+  // return
+  return Date();
+};

@@ -25,6 +25,7 @@ const argv = require("yargs").command(
       console.log(greeting);
 
       exec(`cp ${sourcefile} ${sourcefile}.didact.adoc`, {});
+      autosubs.adocCommandtoTerminalName(`${sourcefile}.didact.adoc`);
       autosubs.adocCommands(`${sourcefile}.didact.adoc`);
       autosubs.adocComments(`${sourcefile}.didact.adoc`);
       autosubs.adocCommandWithOutput(`${sourcefile}.didact.adoc`);
