@@ -1,12 +1,15 @@
 {
   "name": "autodidact",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "converts .md and .adoc to .didact.md and .didact.adoc",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pwright/autodidact.git"
+  },
   "author": "pwright",
   "license": "MIT",
   "bin": {
