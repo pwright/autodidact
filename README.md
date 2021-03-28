@@ -63,3 +63,7 @@ The script assumes:
 
 * prompt ($) is used for all commands
 * each command is a single line
+
+# What it does to asciidoc
+
+
