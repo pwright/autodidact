@@ -26,7 +26,7 @@ const argv = require("yargs").command(
         break;
 
       case ".adoc":
-        greeting = `Converting AsciiDoc ${sourcefile}! ` + ext;
+        greeting = `Converting AsciiDoc ${sourcefile} `;
 
         console.log(greeting);
         console.log(" ");
@@ -38,17 +38,19 @@ const argv = require("yargs").command(
         autosubs.adocCommandWithOutput(`${sourcefile}.didact.adoc`);
         break;
       case ".act.adoc":
-        greeting = `Converting short filename AsciiDoc ${sourcefile}! ` + ext;
+        greeting = `Converting short filename AsciiDoc (${sourcefile})! ` ;
 
         console.log(greeting);
         console.log(" ");
         var newfile = sourcefile.slice(0, -9);
 
         exec(`cp ${sourcefile} ${newfile}.didact.adoc`, {});
-        autosubs.adocCommandtoTerminalName(`${sourcefile}.didact.adoc`);
-        autosubs.adocCommands(`${sourcefile}.didact.adoc`);
-        autosubs.adocComments(`${sourcefile}.didact.adoc`);
-        autosubs.adocCommandWithOutput(`${sourcefile}.didact.adoc`);
+        // order of substitutions
+        autosubs.adocQuery(`${newfile}.didact.adoc`);
+        autosubs.adocCommandtoTerminalName(`${newfile}.didact.adoc`);
+        autosubs.adocCommands(`${newfile}.didact.adoc`);
+        autosubs.adocComments(`${newfile}.didact.adoc`);
+        autosubs.adocCommandWithOutput(`${newfile}.didact.adoc`);
         break;
 
       default:

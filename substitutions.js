@@ -1,3 +1,5 @@
+const { default: alasql } = require("alasql");
+
 // converts single line markdown code examples to didact links
 exports.mdCommands = function (file) {
   const replace = require("replace-in-file");
@@ -103,6 +105,51 @@ exports.adocCommands = function (file) {
   try {
     const results = replace.sync(options);
     console.log("Replacement results:", results);
+  } catch (error) {
+    console.error("Error occurred:", error);
+  }
+
+  // return
+  return Date();
+};
+
+// converts queries to csv files and injects include statement
+exports.adocQuery = function (file) {
+  const replace = require("replace-in-file");
+  const alasql = require("alasql");
+
+  // get file to process
+
+  console.log("processing query: " + file);
+
+  //set up the substitution
+  const options = {
+    files: file,
+    //  query and resultant csv file name in []
+    from: /query::(.*)\[(.*)\]/g,
+    to: (...args) => {
+      console.log("query: " + args[1]);
+      var query = args[1];
+      var file = args[2];
+      // SELECT * INTO CSV('names.csv') FROM
+      intoQuery = query.replace(/from/g,"into CSV('"+file+"') from");
+      console.log(intoQuery);
+
+      alasql(intoQuery);
+      var includeCsv = '[format="csv", separator=";" options="header"]\n';
+      var includeCsv = includeCsv + "|===\n" ;
+      var includeCsv = includeCsv + "include::" + file + "[]\n";
+
+      var includeCsv = includeCsv + "|===";
+      return includeCsv;
+    },
+  };
+
+  //perform the substitution
+
+  try {
+    const results = replace.sync(options);
+    console.log("Query Replacement results:", results);
   } catch (error) {
     console.error("Error occurred:", error);
   }
