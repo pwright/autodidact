@@ -6,6 +6,7 @@ This code helps create didact tutorials from existing files.
 
 ## Example
 
+
 To see this in action, consider this README file, to convert it to didact:
 
 ----
@@ -22,7 +23,7 @@ $ npm i -g .
 To convert the README.md file:
 
 ----
-$ autodidact asciidoc.act.adoc
+$ autodidact asciidoc.adoc
 ----
 
 ## What's in scope
@@ -50,9 +51,3 @@ The command output should appear as a separate entity.
 ----
 $ ls -al
 ----
-
-Alasql queries run and resultant csv files displayed.
-
-// query hello
-
-query::select * from 'people.csv' order by age[all-from-people.csv]
