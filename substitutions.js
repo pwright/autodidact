@@ -189,6 +189,39 @@ exports.adocComments = function (file) {
   // return
   return Date();
 };
+
+// Creates refresh link from lines that match "// Refresh didactrefresh"
+exports.adocRefresh = function (file) {
+  const replace = require("replace-in-file");
+
+  // get file to process
+  console.log("processing: " + file);
+
+  //set up the substitution
+  const options = {
+    files: file,
+    //  comment-start link comment-end
+    from: /\/\/ Refresh didactrefresh/g,
+    to: (...args) => {
+      console.log("commented refresh: " + args[1]);
+      var commentedLink = 'link:didact://?commandId=vscode.didact.startDidact&text=file://{docdir}/'+file+'[Refresh]';
+      return commentedLink;
+    },
+  };
+
+  //perform the substitution
+
+  try {
+    const results = replace.sync(options);
+    console.log("Replacement results:", results);
+  } catch (error) {
+    console.error("Error occurred:", error);
+  }
+
+  // return
+  return Date();
+};
+
 // converts code examples that start with "$ command" but also show output of command
 exports.adocCommandWithOutput = function (file) {
   const replace = require("replace-in-file");
