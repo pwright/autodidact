@@ -53,3 +53,12 @@ Alasql queries run and resultant csv files displayed.
 |===
 include::all-from-people.csv[]
 |===
+
+
+// query tasks
+
+[format="csv", separator=";" options="header"]
+|===
+include::alice-tasks.csv[]
+|===
+

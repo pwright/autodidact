@@ -66,4 +66,13 @@ The script assumes:
 
 # What it does to asciidoc
 
+AsciiDoc support includes sql acting on csv files.
+
+```bash
+$ autodidact -sql test/asciidoc.act.adoc
+```
+
+Note: Only works on *.act.adoc files.
+
+
 
