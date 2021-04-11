@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-var matchExt = require("match-extension");
 var autosubs = require("./substitutions");
 const exec = require("child_process").execSync;
 var greeting = "";
