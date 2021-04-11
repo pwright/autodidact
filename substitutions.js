@@ -129,8 +129,8 @@ exports.adocQuery = function (file) {
     from: /query::(.*)\[(.*)\]/g,
     to: (...args) => {
       console.log("query: " + args[1]);
-      var query = args[1];
-      var file = args[2];
+      var query = args[2];
+      var file = args[1];
       // SELECT * INTO CSV('names.csv') FROM
       intoQuery = query.replace(/from/g,"into CSV('"+file+"') from");
       console.log(intoQuery);

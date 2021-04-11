@@ -1,1 +1,0 @@
-sed -n '/\/\//g}' substitutions.js

@@ -1,0 +1,8 @@
+.mdCommands, " converts single line markdown code examples to didact links"
+.mdComments, " makes all markdown comments visible"
+.adocCommands, " converts single line asciidoc code examples to didact links"
+.adocQuery, " converts queries to csv files and injects include statement"
+.adocComments, " removes comment from lines that match "// <adoc comments> didactlink""
+.adocRefresh, " Creates refresh link from lines that match "// Refresh didactrefresh""
+.adocCommandWithOutput, " converts code examples that start with "$ command" but also show output of command"
+.adocCommandtoTerminalName, " converts code examples and directs them to specified named terminal "
