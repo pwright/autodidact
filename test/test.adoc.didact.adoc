@@ -28,10 +28,5 @@ The command output should appear as a separate entity.
 +++<pre>$ <a href=didact://?commandId=vscode.didact.sendNamedTerminalAString&text=west$$ls%20-al style="text-decoration:none">ls -al</a></pre>+++
 
 
-Alasql queries run and resultant csv files displayed.
-
-// query hello
-
-query::select * from 'people.csv' order by age[all-from-people.csv]
 
 
