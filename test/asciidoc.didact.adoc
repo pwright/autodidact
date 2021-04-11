@@ -62,3 +62,5 @@ include::all-from-people.csv[]
 include::alice-tasks.csv[]
 |===
 
+link:didact://?commandId=vscode.didact.startDidact&text=file://{docdir}/asciidoc.didact.adoc[Refresh]
+

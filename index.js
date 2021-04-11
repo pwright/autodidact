@@ -50,6 +50,8 @@ const argv = require("yargs").command(
         autosubs.adocCommandtoTerminalName(`${newfile}.didact.adoc`);
         autosubs.adocCommands(`${newfile}.didact.adoc`);
         autosubs.adocComments(`${newfile}.didact.adoc`);
+        autosubs.adocRefresh(`${newfile}.didact.adoc`);
+
         autosubs.adocCommandWithOutput(`${newfile}.didact.adoc`);
         break;
 
