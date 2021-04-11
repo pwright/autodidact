@@ -1,0 +1,60 @@
+= Showcase tutorial
+
+ifdef::env-github[]
+If you see this text, you are viewing this tutorial on GitHub.
+To see the tutorial in action, you must run it using [VS Code Didact](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-didact).
+endif::[]
+
+. Click on the following to run `ls` in a terminal named 'west':
++
+[source,bash,term=west]
+----
+$ ls
+----
+
+. Now, let's split the terminal and name the other terminal 'east'.
+
+// icon:cogs[] link:++didact://?commandId=workbench.action.terminal.split++[Split terminal] didactlink
+
+// icon:cogs[] link:didact://?commandId=workbench.action.terminal.renameWithArg&json={&#34;name&#34;:&#34;east&#34;}[Rename terminal] didactlink
+
+[start=3]
+
+. At this point, you can run `cd test` in the east terminal:
++
+[source,bash,term=east]
+----
+$ cd test
+----
+
+. Check out the ability to include data in your tutorials:
++
+query::alice-tasks.csv[select * from 'tasks.csv' where Name='Alice']
++
+To include data in your tutorial, you create a query like `select * from 'tasks.csv' where Name='Alice'`.
+
+. Using refresh:
+.. Note the following included file, `time.txt`.
++
+[source,bash,term=east]
+----
+include::time.txt[]
+----
+
+.. Update the file:
++
+[source,bash,term=east]
+----
+$ date > time.txt
+----
+
+.. Refresh the didact view and check the new data.
+// Refresh didactrefresh
+
+== Reference
+The following actions are performed by autodidact:
+
+[format="csv"]
+|===
+include::substitutions.csv[]
+|===

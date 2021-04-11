@@ -1,0 +1,57 @@
+= Showcase tutorial
+
+ifdef::env-github[]
+If you see this text, you are viewing this tutorial on GitHub.
+To see the tutorial in action, you must run it using [VS Code Didact](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-didact).
+endif::[]
+
+. Click on the following to run `ls` in a terminal named 'west':
++
++++<pre>$ <a href=didact://?commandId=vscode.didact.sendNamedTerminalAString&text=west$$ls style="text-decoration:none">ls</a></pre>+++
+
+
+. Now, let's split the terminal and name the other terminal 'east'.
+
+icon:cogs[] link:++didact://?commandId=workbench.action.terminal.split++[Split terminal]
+
+icon:cogs[] link:didact://?commandId=workbench.action.terminal.renameWithArg&json={&#34;name&#34;:&#34;east&#34;}[Rename terminal]
+
+[start=3]
+
+. At this point, you can run `cd test` in the east terminal:
++
++++<pre>$ <a href=didact://?commandId=vscode.didact.sendNamedTerminalAString&text=east$$cd%20test style="text-decoration:none">cd test</a></pre>+++
+
+
+. Check out the ability to include data in your tutorials:
++
+[format="csv", separator=";" options="header"]
+|===
+include::alice-tasks.csv[]
+|===
++
+To include data in your tutorial, you create a query like `select * from 'tasks.csv' where Name='Alice'`.
+
+. Using refresh:
+.. Note the following included file, `time.txt`.
++
+[source,bash,term=east]
+----
+include::time.txt[]
+----
+
+.. Update the file:
++
++++<pre>$ <a href=didact://?commandId=vscode.didact.sendNamedTerminalAString&text=east$$date%20%3E%20time.txt style="text-decoration:none">date > time.txt</a></pre>+++
+
+
+.. Refresh the didact view and check the new data.
+link:didact://?commandId=vscode.didact.startDidact&text=file://{docdir}/showcase.didact.adoc[Refresh]
+
+== Reference
+The following actions are performed by autodidact:
+
+[format="csv"]
+|===
+include::substitutions.csv[]
+|===

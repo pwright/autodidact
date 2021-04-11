@@ -158,7 +158,7 @@ exports.adocQuery = function (file) {
   return Date();
 };
 
-// removes comment from lines that match "// <adoc comments> didactlink"
+// removes comment from lines that match '// <adoc comments> didactlink'
 exports.adocComments = function (file) {
   const replace = require("replace-in-file");
 
@@ -190,7 +190,7 @@ exports.adocComments = function (file) {
   return Date();
 };
 
-// Creates refresh link from lines that match "// Refresh didactrefresh"
+// Creates refresh link from lines that match '// Refresh didactrefresh'
 exports.adocRefresh = function (file) {
   const replace = require("replace-in-file");
 
@@ -222,7 +222,7 @@ exports.adocRefresh = function (file) {
   return Date();
 };
 
-// converts code examples that start with "$ command" but also show output of command
+// converts code examples that start with '$ command' but also show output of command
 exports.adocCommandWithOutput = function (file) {
   const replace = require("replace-in-file");
 

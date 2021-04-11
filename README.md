@@ -19,6 +19,5 @@ To install autodidact:
 $ npm i -g autodidact
 ```
 
-To learn more about autodidact, clone the repo, open in VS Code and run the Didact Tutorials.
+To learn more about autodidact, clone the repo, open in VS Code, install [VS Code Didact](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-didact) and run the [Showcase](test/showcase.didact.adoc).
 
-See [test/README.adoc](test/README.adoc)

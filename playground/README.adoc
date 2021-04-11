@@ -1,23 +1,63 @@
-[#autodidact]
-= Autodidact
-:source-filename: /Users/pwright/repos/autodidact/README.md
+:doctype: book
+:source-filename: /Users/pwright/repos/autodidact/test/README.md
 
-Autodidact provides a method to create https://marketplace.visualstudio.com/items?itemName=redhat.vscode-didact[VS Code Didact] files from plain Markdown or AsciiDoc:
+[#what-it-does-to-markdown-files]
+== What it does to Markdown files
 
-* Commands become active in VS Code
-* Terminals can be created, named, and updated.
-* Reports driven by SQL can be included in AsciiDoc.
-* Together, these features above allow you create, test, and improve tutorials and READMEs.
-* All the markup (Markdown or AsciiDoc) remains publishable by existing channels (GitHub*, GitLab, Asciidoctor, Gatsby, etc).
+If you have a command written with a codefence and using the `$` prompt, it is converted to a didact link.
 
-Automate the creation of  tutorials.
+If you create didact links, you can hide them in comments, eg
 
-This code helps create didact tutorials from existing files.
+`+<!--- [Click here to show command pallette](didact://?commandId=workbench.action.showCommands) --->+`
 
-To install autodidact:
+[#example]
+== Example
 
- $ npm i -g autodidact
+To see this in action, consider this README file, to convert it to didact:
 
-To learn more about autodidact, clone the repo, open in VS Code and run the Didact Tutorials.
+ $ npm i
 
-See link:test/README.adoc[test/README.adoc]
+That installs the required dependencies, now you can install autodidact as a global command:
+
+ $ npm i -g .
+
+To convert the README.md file:
+
+ $ autodidact README.md
+
+[#whats-in-scope]
+== What's in scope
+
+Single line commands and links in comments are converted.
+
+// - [Click here to show command pallette](didact://?commandId=workbench.action.showCommands) -
+
+A tutorial might consist of a number of commands, eg:
+
+ $ ls -al
+
+Sometimes, you might want to format the commands as per https://docs.github.com/en/free-pro-team@latest/github/writing-on-github/creating-and-highlighting-code-blocks
+
+[source,bash]
+----
+$ ls -al
+----
+
+The script assumes:
+
+* prompt ($) is used for all commands
+* each command is a single line
+
+[#what-it-does-to-ascidoc-files-with-file-suffix]
+= What it does to AsciDoc files with `act.adoc` file suffix
+
+* outputs files with 'didact.adoc' (avoiding double adoc)
+* creates refresh link
+* supports sql acting on csv files.
+
+[source,bash]
+----
+$ autodidact test/asciidoc.act.adoc
+----
+
+NOTE: Only works on *.act.adoc files.

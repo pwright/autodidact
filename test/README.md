@@ -1,5 +1,3 @@
-See 
-
 ## What it does to Markdown files
 
 If you have a command written with a codefence and using the `$` prompt, it is converted to a didact link.
@@ -60,7 +58,7 @@ The script assumes:
 * supports sql acting on csv files.
 
 ```bash
-$ autodidact -sql test/asciidoc.act.adoc
+$ autodidact test/asciidoc.act.adoc
 ```
 
 Note: Only works on *.act.adoc files.
