@@ -1,6 +1,15 @@
 # Autodidact
 
-Automate the creation of [VS Code Didact](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-didact) tutorials.
+
+Autodidact provides a method to create [VS Code Didact](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-didact) files from plain Markdown or AsciiDoc:
+
+* Commands become active in VS Code
+* Terminals can be created, named, and updated.
+* Reports driven by SQL can be included in AsciiDoc.
+* Together, these features above allow you create, test, and improve tutorials and READMEs.
+* All the markup (Markdown or AsciiDoc) remains publishable by existing channels (GitHub*, GitLab, Asciidoctor, Gatsby, etc).
+
+Automate the creation of  tutorials.
 
 This code helps create didact tutorials from existing files.
 
@@ -10,72 +19,5 @@ To install autodidact:
 $ npm i -g autodidact
 ```
 
-To use autodidact, run it against either a Markdown or AsciiDoc file.
-
-## What it does to Markdown files
-
-If you have a command written with a codefence and using the `$` prompt, it is converted to a didact link.
-
-If you create didact links, you can hide them in comments, eg
-
-`<!--- [Click here to show command pallette](didact://?commandId=workbench.action.showCommands) --->`
-
-## Example
-
-To see this in action, consider this README file, to convert it to didact:
-
-```
-$ npm i 
-```
-
-That installs the required dependencies, now you can install autodidact as a global command:
-
-```
-$ npm i -g .
-```
-
-
-To convert the README.md file:
-
-```
-$ autodidact README.md
-```
-
-## What's in scope
-
-Single line commands and links in comments are converted.
-
-<!--- [Click here to show command pallette](didact://?commandId=workbench.action.showCommands) --->
-
-A tutorial might consist of a number of commands, eg:
-
-```
-$ ls -al
-```
-
-Sometimes, you might want to format the commands as per https://docs.github.com/en/free-pro-team@latest/github/writing-on-github/creating-and-highlighting-code-blocks
-
-```bash
-$ ls -al
-```
-
-The script assumes:
-
-* prompt ($) is used for all commands
-* each command is a single line
-
-# What it does to AsciDoc files with `act.adoc` file suffix
-
-* outputs files with 'didact.adoc' (avoiding double adoc)
-* creates refresh link
-
-* supports sql acting on csv files.
-
-```bash
-$ autodidact -sql test/asciidoc.act.adoc
-```
-
-Note: Only works on *.act.adoc files.
-
-
+To learn more about autodidact, clone the repo, open in VS Code, install [VS Code Didact](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-didact) and run the [Showcase](test/showcase.didact.adoc).
 
