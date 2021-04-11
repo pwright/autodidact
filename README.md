@@ -63,3 +63,19 @@ The script assumes:
 
 * prompt ($) is used for all commands
 * each command is a single line
+
+# What it does to AsciDoc files with `act.adoc` file suffix
+
+* outputs files with 'didact.adoc' (avoiding double adoc)
+* creates refresh link
+
+* supports sql acting on csv files.
+
+```bash
+$ autodidact -sql test/asciidoc.act.adoc
+```
+
+Note: Only works on *.act.adoc files.
+
+
+
