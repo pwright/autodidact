@@ -33,7 +33,8 @@ query::alice-tasks.csv[select * from 'tasks.csv' where Name='Alice']
 +
 To include data in your tutorial, you create a query like `select * from 'tasks.csv' where Name='Alice'`.
 
-. Using refresh:
+. Use the refresh feature to display changed content in a tutorial:
+
 .. Note the following included file, `time.txt`.
 +
 [source,bash,term=east]

@@ -204,7 +204,8 @@ exports.adocRefresh = function (file) {
     from: /\/\/ Refresh didactrefresh/g,
     to: (...args) => {
       console.log("commented refresh: " + args[1]);
-      var commentedLink = 'link:didact://?commandId=vscode.didact.startDidact&text=file://{docdir}/'+file+'[Refresh]';
+      var filename = file.replace(/^.*[\\\/]/, '')
+      var commentedLink = 'link:didact://?commandId=vscode.didact.startDidact&text=file://{docdir}/'+filename+'[Refresh]';
       return commentedLink;
     },
   };
