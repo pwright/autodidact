@@ -91,7 +91,7 @@ exports.adocCommands = function (file) {
       console.log("command: " + args[1]);
       var command = args[1];
       var link =
-        "+++<pre>$ <a href=didact://?commandId=vscode.didact.sendNamedTerminalAString&text=$$" +
+        "+++<pre>$ <a href=didact://?commandId=vscode.didact.sendNamedTerminalAString&text=bash$$" +
         encodeURIComponent(command) +
         ' style="text-decoration:none">' +
         command +
@@ -240,7 +240,7 @@ exports.adocCommandWithOutput = function (file) {
 
       var command = args[1];
       var link =
-        "+++<pre>$ <a href=didact://?commandId=vscode.didact.sendNamedTerminalAString&text=$$" +
+        "+++<pre>$ <a href=didact://?commandId=vscode.didact.sendNamedTerminalAString&text=bash$$" +
         encodeURIComponent(command) +
         ' style="text-decoration:none">' +
         command +

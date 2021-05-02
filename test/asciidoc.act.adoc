@@ -6,7 +6,9 @@ This code helps create didact tutorials from existing files.
 
 ## Example
 
-To see this in action, consider this README file, to convert it to didact:
+To see this in action, consider this adoc file.
+
+To convert it to didact:
 
 ----
 $ npm i

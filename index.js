@@ -8,12 +8,13 @@ const argv = require("yargs").command(
   "mockdown only applies to adoc files, requires asciidoctor, and creates html with a didact.md suffix that didact can display",
   () => {},
   function ({ sourcefile, mockdown }) {
-    console.log({ sourcefile, mockdown });
-
+ 
     //destinationfile =md translates as *.adoc converts to *.didact.md (displaying html)
-    var ext = sourcefile.substring(sourcefile.indexOf("."));
+    var ext = sourcefile.split('.').pop();
+    console.log({ sourcefile, mockdown, ext });
+
     switch (ext) {
-      case ".md":
+      case "md":
         greeting = `Converting Markdown ${sourcefile}!`;
         console.log(greeting);
 
@@ -22,7 +23,7 @@ const argv = require("yargs").command(
         autosubs.mdComments(`${sourcefile}.didact.md`);
         break;
 
-      case ".adoc":
+      case "adoc":
         greeting = `Converting  filename AsciiDoc (${sourcefile})! `;
 
         console.log(greeting);
@@ -42,8 +43,10 @@ const argv = require("yargs").command(
         autosubs.adocCommandWithOutput(`${destinationfile}`);
 
         if (mockdown=='mockdown') {
+
           var mockdownfile = destinationfile.replace(/.adoc$/, ".md");
-          exec(`asciidoctor ${destinationfile} -o $(mockdownfile)`, {});
+          console.log(mockdownfile)
+          exec(`asciidoctor ${destinationfile} -o ${mockdownfile}`, {});
           exec(`rm ${destinationfile}`, {});
 
         }
