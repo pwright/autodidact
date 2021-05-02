@@ -35,3 +35,8 @@ This allows you create files that are distinct from your source files, but requi
 
 To learn more about autodidact, clone the repo, open in VS Code, install [VS Code Didact](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-didact) and run the [Showcase](test/showcase.didact.adoc).
 
+
+To check the version of autodidact installed:
+```
+$ npm list autodidact
+```
