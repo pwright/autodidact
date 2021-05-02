@@ -19,5 +19,19 @@ To install autodidact:
 $ npm i -g autodidact
 ```
 
+To convert either md or adoc files to didact format:
+
+```
+$ autodidact <file>
+```
+
+To convert an AsciiDoc file to didact using markdown html as the output format
+```
+$ autodidact <file> mockdown
+```
+
+This allows you create files that are distinct from your source files, but requires that you have `asciidoctor` already installed.
+
+
 To learn more about autodidact, clone the repo, open in VS Code, install [VS Code Didact](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-didact) and run the [Showcase](test/showcase.didact.adoc).
 

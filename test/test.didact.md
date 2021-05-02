@@ -456,7 +456,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>A tutorial might consist of a number of commands, eg:</p>
 </div>
 <div class="paragraph">
-<p><pre>$ <a href=didact://?commandId=vscode.didact.sendNamedTerminalAString&text=$$date style="text-decoration:none">date</a></pre></p>
+<p><pre>$ <a href=didact://?commandId=vscode.didact.sendNamedTerminalAString&text=bash$$date style="text-decoration:none">date</a></pre></p>
 </div>
 <div class="paragraph">
 <p>Typical output:</p>
@@ -475,7 +475,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-05-02 14:31:52 +0100
+Last updated 2021-05-02 14:50:08 +0100
 </div>
 </div>
 </body>
