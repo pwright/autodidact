@@ -4,15 +4,13 @@ const exec = require("child_process").execSync;
 var greeting = "";
 
 const argv = require("yargs").command(
-  "$0 <source file> [destination file]",
-  "the default command",
+  "$0 <source file> [mockdown]",
+  "mockdown only applies to adoc files, requires asciidoctor, and creates html with a didact.md suffix that didact can display",
   () => {},
-  function ({ sourcefile, destinationfile }) {
-    console.log({ sourcefile, destinationfile });
+  function ({ sourcefile, mockdown }) {
+    console.log({ sourcefile, mockdown });
 
-    //destinationfile not implemented
-    //but .act.adoc does convert to .adoc
-
+    //destinationfile =md translates as *.adoc converts to *.didact.md (displaying html)
     var ext = sourcefile.substring(sourcefile.indexOf("."));
     switch (ext) {
       case ".md":
@@ -25,27 +23,26 @@ const argv = require("yargs").command(
         break;
 
       case ".adoc":
-        greeting = `Converting AsciiDoc ${sourcefile} `;
+        greeting = `Converting  filename AsciiDoc (${sourcefile})! ` ;
 
         console.log(greeting);
         console.log(" ");
 
-        exec(`cp ${sourcefile} ${sourcefile}.didact.adoc`, {});
-        autosubs.adocCommandtoTerminalName(`${sourcefile}.didact.adoc`);
-        autosubs.adocCommands(`${sourcefile}.didact.adoc`);
-        autosubs.adocComments(`${sourcefile}.didact.adoc`);
-        autosubs.adocCommandWithOutput(`${sourcefile}.didact.adoc`);
-        break;
-      case ".act.adoc":
-        greeting = `Converting short filename AsciiDoc (${sourcefile})! ` ;
+        if (mockdown=='mockdown') {
+          var destinationfile = sourcefile.replace(/.adoc$/,".didact.adoc");
+          console.log('Mockdown  ' + destinationfile);
+          exec(`cp ${sourcefile} ${destinationfile}`, {});    
+        };
+    
 
-        console.log(greeting);
-        console.log(" ");
+
         var newfile = sourcefile.slice(0, -9);
+        destinationfile=${newfile}.didact.adoc
+        exec(`cp ${sourcefile} ${destinationfile}`, {});
 
-        exec(`cp ${sourcefile} ${newfile}.didact.adoc`, {});
+
         // order of substitutions
-        autosubs.adocQuery(`${newfile}.didact.adoc`);
+        autosubs.adocQuery(`${destinationfile}`);
         autosubs.adocCommandtoTerminalName(`${newfile}.didact.adoc`);
         autosubs.adocCommands(`${newfile}.didact.adoc`);
         autosubs.adocComments(`${newfile}.didact.adoc`);
