@@ -23,32 +23,30 @@ const argv = require("yargs").command(
         break;
 
       case ".adoc":
-        greeting = `Converting  filename AsciiDoc (${sourcefile})! ` ;
+        greeting = `Converting  filename AsciiDoc (${sourcefile})! `;
 
         console.log(greeting);
         console.log(" ");
 
-        if (mockdown=='mockdown') {
-          var destinationfile = sourcefile.replace(/.adoc$/,".didact.adoc");
-          console.log('Mockdown  ' + destinationfile);
-          exec(`cp ${sourcefile} ${destinationfile}`, {});    
-        };
-    
-
-
-        var newfile = sourcefile.slice(0, -9);
-        destinationfile=${newfile}.didact.adoc
+        var destinationfile = sourcefile.replace(/.adoc$/, ".didact.adoc");
+        console.log("Mockdown  " + destinationfile);
         exec(`cp ${sourcefile} ${destinationfile}`, {});
-
 
         // order of substitutions
         autosubs.adocQuery(`${destinationfile}`);
-        autosubs.adocCommandtoTerminalName(`${newfile}.didact.adoc`);
-        autosubs.adocCommands(`${newfile}.didact.adoc`);
-        autosubs.adocComments(`${newfile}.didact.adoc`);
-        autosubs.adocRefresh(`${newfile}.didact.adoc`);
+        autosubs.adocCommandtoTerminalName(`${destinationfile}`);
+        autosubs.adocCommands(`${destinationfile}`);
+        autosubs.adocComments(`${destinationfile}`);
+        autosubs.adocRefresh(`${destinationfile}`);
 
-        autosubs.adocCommandWithOutput(`${newfile}.didact.adoc`);
+        autosubs.adocCommandWithOutput(`${destinationfile}`);
+
+        if (mockdown=='mockdown') {
+          var mockdownfile = destinationfile.replace(/.adoc$/, ".md");
+          exec(`asciidoctor ${destinationfile} -o $(mockdownfile)`, {});
+          exec(`rm ${destinationfile}`, {});
+
+        }
         break;
 
       default:
