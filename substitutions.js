@@ -129,8 +129,8 @@ exports.adocQuery = function (file) {
     from: /query::(.*)\[(.*)\]/g,
     to: (...args) => {
       console.log("query: " + args[1]);
-      var query = args[1];
-      var file = args[2];
+      var query = args[2];
+      var file = args[1];
       // SELECT * INTO CSV('names.csv') FROM
       intoQuery = query.replace(/from/g,"into CSV('"+file+"') from");
       console.log(intoQuery);
@@ -158,7 +158,7 @@ exports.adocQuery = function (file) {
   return Date();
 };
 
-// removes comment from lines that match "// <adoc comments> didactlink"
+// removes comment from lines that match '// <adoc comments> didactlink'
 exports.adocComments = function (file) {
   const replace = require("replace-in-file");
 
@@ -190,7 +190,7 @@ exports.adocComments = function (file) {
   return Date();
 };
 
-// Creates refresh link from lines that match "// Refresh didactrefresh"
+// Creates refresh link from lines that match '// Refresh didactrefresh'
 exports.adocRefresh = function (file) {
   const replace = require("replace-in-file");
 
@@ -204,7 +204,8 @@ exports.adocRefresh = function (file) {
     from: /\/\/ Refresh didactrefresh/g,
     to: (...args) => {
       console.log("commented refresh: " + args[1]);
-      var commentedLink = 'link:didact://?commandId=vscode.didact.startDidact&text=file://{docdir}/'+file+'[Refresh]';
+      var filename = file.replace(/^.*[\\\/]/, '')
+      var commentedLink = 'link:didact://?commandId=vscode.didact.startDidact&text=file://{docdir}/'+filename+'[Refresh]';
       return commentedLink;
     },
   };
@@ -222,7 +223,7 @@ exports.adocRefresh = function (file) {
   return Date();
 };
 
-// converts code examples that start with "$ command" but also show output of command
+// converts code examples that start with '$ command' but also show output of command
 exports.adocCommandWithOutput = function (file) {
   const replace = require("replace-in-file");
 
